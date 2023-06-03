@@ -1,3 +1,5 @@
+import 'dart:async';
+
 class Model {
   Model();
 
@@ -6,12 +8,14 @@ class Model {
   bool _isToggleButtonEnabled = false;
   bool _isIntervalButtonEnabled = false;
   double _currentIntervalSliderValue = 1.0;
+  // Timer _timer = Timer();
 
   bool get isTorchEnabled => _isTorchEnabled;
   bool get isSOSButtonEnabled => _isSOSButtonEnabled;
   bool get isToggleButtonEnabled => _isToggleButtonEnabled;
   bool get isIntervalButtonEnabled => _isIntervalButtonEnabled;
   double get currentIntervalSliderValue => _currentIntervalSliderValue;
+  // Timer get timer => _timer;
 
   set setTorchEnabled(bool value) {
     _isTorchEnabled = value;
@@ -32,4 +36,8 @@ class Model {
   set setIntervalSliderValue(double value) {
     _currentIntervalSliderValue = value;
   }
+
+  // set setTimer(Timer value) {
+  //   _timer = value;
+  // }
 }
