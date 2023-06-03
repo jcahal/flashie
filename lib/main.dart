@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:torch_interval/torch_controller.dart';
+import 'package:flashie/flashie.dart';
 
 void main() {
   runApp(const TorchInterval());
@@ -31,7 +31,7 @@ class TorchInterval extends StatelessWidget {
             ),
           ),
         ),
-        body: const TorchController(),
+        body: const Flashie(),
       ),
     );
   }

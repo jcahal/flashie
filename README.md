@@ -1,4 +1,4 @@
-# torch_interval
+# Flashie
 
 A new Flutter project.
 
