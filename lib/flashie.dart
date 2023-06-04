@@ -14,19 +14,31 @@ class Flashie extends StatelessWidget {
 
     value
         ? children = const [
-            SOSButton(),
-            SizedBox(
-              height: 20.0,
+            Spacer(
+              flex: 2,
             ),
-            ToggleButton(),
-            SizedBox(
-              height: 20.0,
+            Flexible(
+              flex: 10,
+              child: SOSButton(),
             ),
-            IntervalButton(),
-            SizedBox(
-              height: 20.0,
+            Spacer(),
+            Flexible(
+              flex: 10,
+              child: ToggleButton(),
             ),
-            IntervalSlider(),
+            Spacer(),
+            Flexible(
+              flex: 10,
+              child: IntervalButton(),
+            ),
+            Spacer(
+              flex: 5,
+            ),
+            Flexible(
+              flex: 10,
+              child: IntervalSlider(),
+            ),
+            Spacer(),
           ]
         : children = const [
             Text(

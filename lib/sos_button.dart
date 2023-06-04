@@ -12,10 +12,7 @@ class SOSButton extends StatelessWidget {
       initialData: Controller.state,
       builder: (context, snapshot) {
         return IconButton.filled(
-          iconSize: 60.0,
-          padding: const EdgeInsets.all(36.0),
           style: ButtonStyle(
-            elevation: MaterialStateProperty.all(3.33),
             backgroundColor: MaterialStateProperty.all(Colors.red),
           ),
           icon: Icon(
