@@ -1,13 +1,33 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 import 'package:flashie/flashie.dart';
+import 'package:flashie/google_banner_ad.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
+
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _AppState();
+  }
+}
+
+class _AppState extends State<App> {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +39,6 @@ class App extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 48, 48, 48),
         ),
         iconButtonTheme: IconButtonThemeData(
-          //7f7f7f
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith((states) {
               if (states.contains(MaterialState.disabled)) {
@@ -57,7 +76,7 @@ class App extends StatelessWidget {
           trackHeight: 10.0,
         ),
       ),
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
       home: Scaffold(
         appBar: AppBar(
           title: Center(
@@ -74,6 +93,14 @@ class App extends StatelessWidget {
           ),
         ),
         body: const Flashie(),
+        bottomNavigationBar: const Row(
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: GoogleBannerAd(),
+            )
+          ],
+        ),
       ),
     );
   }
