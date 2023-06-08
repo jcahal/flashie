@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:torch_light/torch_light.dart';
 import 'package:flashie/model.dart';
 
@@ -8,8 +9,8 @@ enum TimerMode { sos, inf }
 class Controller {
   Controller();
 
-  static final _state = Model();
   static final torchAvailble = TorchLight.isTorchAvailable();
+  static final _state = Model();
   static final _streamController = StreamController<Model>.broadcast();
   static Timer? _periodicTimer;
 
@@ -17,13 +18,17 @@ class Controller {
   static Model get state => _state;
 
   static void _enableTorch() async {
-    // await TorchLight.enableTorch();
+    if (kReleaseMode) {
+      await TorchLight.enableTorch();
+    }
     _state.setTorchEnabled = true;
     _streamController.sink.add(_state);
   }
 
   static void _disableTorch() async {
-    // await TorchLight.disableTorch();
+    if (kReleaseMode) {
+      await TorchLight.disableTorch();
+    }
     _state.setTorchEnabled = false;
     _streamController.sink.add(_state);
   }

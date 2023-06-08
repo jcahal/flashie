@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -15,6 +16,11 @@ class GoogleBannerAd extends StatefulWidget {
 class _GoogleBannerAdState extends State<GoogleBannerAd> {
   BannerAd? _googleBannerAd;
   bool _isLoaded = false;
+
+  // Initialize with test ad unit ids
+  String? _adUnitId = Platform.isAndroid
+          ? 'ca-app-pub-3940256099942544/6300978111'
+          : 'ca-app-pub-3940256099942544/2934735716';
 
   @override
   void didChangeDependencies() {
@@ -33,11 +39,15 @@ class _GoogleBannerAdState extends State<GoogleBannerAd> {
       return;
     }
 
+    if (kReleaseMode) {
+      // If in production, set ad unit ids to production
+      _adUnitId = Platform.isAndroid
+          ? 'ca-app-pub-7773502228833240/8210280786'
+          : 'ca-app-pub-7773502228833240/1644872436';
+    }
+
     _googleBannerAd = BannerAd(
-      // TODO: replace these test ad units with your own ad unit.
-      adUnitId: Platform.isAndroid
-          ? 'ca-app-pub-3940256099942544/6300978111'
-          : 'ca-app-pub-3940256099942544/2934735716',
+      adUnitId: _adUnitId!,
       size: size,
       request: const AdRequest(),
       listener: BannerAdListener(
@@ -70,32 +80,6 @@ class _GoogleBannerAdState extends State<GoogleBannerAd> {
           )
         : const Text("Ad loading...");
   }
-
-  // => Scaffold(
-  //       appBar: AppBar(
-  //         title: const Text('Anchored adaptive banner example'),
-  //       ),
-  //       body: Center(
-  //         child: Stack(
-  //           alignment: AlignmentDirectional.bottomCenter,
-  //           children: <Widget>[
-  //             ListView.separated(
-  //                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-  //                 itemBuilder: (context, index) {
-  //                   return const Text(
-  //                     'Placeholder text',
-  //                     style: TextStyle(fontSize: 24,),
-  //                   );
-  //                 },
-  //                 separatorBuilder: (context, index) {
-  //                   return Container(height: 40);
-  //                 },
-  //                 itemCount: 20),
-
-  //           ],
-  //         ),
-  //       ),
-  //     );
 
   @override
   void dispose() {

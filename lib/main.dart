@@ -1,5 +1,5 @@
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:flashie/flashie.dart';
@@ -49,9 +49,8 @@ class _AppState extends State<App> {
             }),
             foregroundColor: MaterialStateProperty.all(
                 const Color.fromARGB(255, 48, 48, 48)),
-            fixedSize: MaterialStateProperty.all(const Size(250.0, 150.0)),
+            fixedSize: MaterialStateProperty.all(const Size(200.0, 150.0)),
             iconSize: MaterialStateProperty.all(90.0),
-            padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
             elevation: MaterialStateProperty.all(.5),
           ),
         ),
@@ -66,9 +65,8 @@ class _AppState extends State<App> {
         ),
         iconButtonTheme: IconButtonThemeData(
           style: ButtonStyle(
-            fixedSize: MaterialStateProperty.all(const Size(250.0, 150.0)),
+            fixedSize: MaterialStateProperty.all(const Size(200.0, 150.0)),
             iconSize: MaterialStateProperty.all(90.0),
-            padding: MaterialStateProperty.all(const EdgeInsets.all(15.0)),
             elevation: MaterialStateProperty.all(.5),
           ),
         ),

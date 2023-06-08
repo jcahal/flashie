@@ -13,9 +13,9 @@ class ToggleButton extends StatelessWidget {
         builder: (context, snapshot) {
           return IconButton.filled(
             icon: Icon(snapshot.data!.isTorchEnabled
-                ? Icons.flashlight_on
-                : Icons.flashlight_off),
-            onPressed: snapshot.data!.isSOSButtonEnabled
+                ? Icons.flash_on
+                : Icons.flash_off),
+            onPressed: snapshot.data!.isSOSButtonEnabled || snapshot.data!.isIntervalButtonEnabled
                 ? null
                 : Controller.onToggleButtonPressed,
           );
