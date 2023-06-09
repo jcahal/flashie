@@ -1,6 +1,6 @@
 {
-    "name": "torch_interval",
-    "short_name": "torch_interval",
+    "name": "flashie",
+    "short_name": "flashie",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

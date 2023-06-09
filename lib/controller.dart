@@ -9,13 +9,23 @@ enum TimerMode { sos, inf }
 class Controller {
   Controller();
 
-  static final torchAvailble = TorchLight.isTorchAvailable();
+  static final torchAvailble = _initialize();
   static final _state = Model();
   static final _streamController = StreamController<Model>.broadcast();
   static Timer? _periodicTimer;
 
   static Stream<Model> get stream => _streamController.stream;
   static Model get state => _state;
+
+  static Future<bool> _initialize() {
+    Completer<bool> completer = Completer<bool>();
+
+    kReleaseMode 
+      ? TorchLight.isTorchAvailable().then((value) => completer.complete(value)) 
+      : completer.complete(true);
+    
+    return completer.future;
+  }
 
   static void _enableTorch() async {
     if (kReleaseMode) {

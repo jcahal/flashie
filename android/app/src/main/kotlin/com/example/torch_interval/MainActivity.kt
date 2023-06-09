@@ -1,4 +1,4 @@
-package com.example.torch_interval
+package com.example.flashie
 
 import io.flutter.embedding.android.FlutterActivity
 

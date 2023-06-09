@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "torch_interval" "\0"
+            VALUE "FileDescription", "flashie" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "torch_interval" "\0"
+            VALUE "InternalName", "flashie" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "torch_interval.exe" "\0"
-            VALUE "ProductName", "torch_interval" "\0"
+            VALUE "OriginalFilename", "flashie.exe" "\0"
+            VALUE "ProductName", "flashie" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
